@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Nadboy Tech</title>
+<meta charset="utf-8">
+<!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="ie.css" />
+<![endif]-->
+<!--[if gte IE 8]>
+  <link rel="stylesheet" type="text/css" href="ie.css" />
+<![endif]-->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="animate.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="animate.css">
+<!-- font styles -->
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<!-- End of font styles -->
+<link  href="nad.js">
+<script type="text/javascript">
+  angular.module('firstApplication', ['ngMaterial'])
+  .controller('AppCtrl', function($anchorScroll, $location,$scope, $mdSidenav) {
+    $scope.showMobileMainHeader = true;
+    	$scope.openSideNavPanel = function() {
+      		$mdSidenav('left').open();
+    	};
+    	$scope.closeSideNavPanel = function() {
+      		$mdSidenav('left').close();
+    	};
+      $scope.home = function(home){
+        var newHash = home;
+      
+        if ($location.hash() !== newHash) {
+
+        $location.hash(newHash);
+        } 
+      else {
+        $anchorScroll();
+          }
+        $mdSidenav('left').close();
+
+      };
+
+      (function(){
+          $scope.screenWidth = window.innerWidth;
+        
+          if($scope.screenWidth >= 480){
+              $scope.tabStretch = "always";
+          }
+          else{
+            $scope.tabStretch = "never";
+          }
+      }());
+      $scope.animateToTab = function(product){
+        if(product == 'android'){
+          $scope.tabAnimation1 = 'animated'+' '+'fadeInLeft';
+          $scope.tabAnimation2 = 'animated'+' '+'fadeInRight';
+        }
+        if(product == 'ios'){
+          $scope.tabAnimation3 = 'animated'+' '+'fadeInLeft';
+          $scope.tabAnimation4 = 'animated'+' '+'fadeInRight';
+        }
+        if(product == 'mac'){
+          $scope.tabAnimation5 = 'animated'+' '+'fadeInLeft';
+        }
+        if(product == 'ionic'){
+          $scope.tabAnimation6 = 'animated'+' '+'fadeInLeft';
+        }
+        
+      
+      }   
+  	})
+</script> 
+<!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/modernizr.custom.63321.js"></script>
+</head>
+<body ng-app="firstApplication" ng-cloak ng-controller="AppCtrl">
+    <div class="ie">
+        <md-toolbar  class="one md-whiteframe-7dp header">
+            <div class="md-toolbar-tools" >
+                <md-button class="menuButtonXs" ng-click="openSideNavPanel()" hide-md hide-lg hide-gt-lg hide-gt-md>
+                    <md-icon class="material-icons"><b>&#xE5D2;</b></md-icon>
+                </md-button>
+                <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" style="height:100vh;line-height:60px;">
+                      <md-toolbar layout="row">
+                          <div class="md-toolbar-tools" style="background:#000;text-align:center;">
+                              <!-- <h2>
+                                  <span style="text-align:center;background:">HOME</span>
+                              </h2> -->
+                              <img src="sideNavLogo.png" style="height: 35px;">
+                              <span flex></span>
+                              <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
+                                  <md-icon class="md-default-theme material-icons">&#xE5CD;</md-icon>
+                              </md-button>
+                          </div>
+                      </md-toolbar> 
+                      <md-content style="background-color: #fab702;height: 100%;">
+                          <md-list class="sidenavButtons">
+                              <md-list-item class="side side2"> 
+                                  <md-button  ng-click="home('home')">Home</md-button>
+                              </md-list-item>
+                              <md-list-item class="side side2">           
+                                  <md-button  ng-click="home('about')">About</md-button>
+                              </md-list-item>
+                              <md-list-item class="side side2">
+                                  <md-button  ng-click="home('service')">Services</md-button>
+                              </md-list-item>
+                              <md-list-item class="side side2">
+                                  <md-button  ng-click="home('product')">Products</md-button>
+                              </md-list-item>
+                              <md-list-item class="side side2">
+                                 <md-button  ng-click="home('contactUs')">Contact Us</md-button>
+                              </md-list-item>
+                          </md-list>
+                      </md-content> 
+                </md-sidenav>
+                <div class="logo">
+                    <img src="456.png" class="img-responsive" width="180px" style="margin-bottom:10px;">
+                </div>
+                <span flex></span>
+                <a href="#home" class="atHome" hide-xs hide-sm><p class="three">Home</p></a>
+                <img src="55.png" width="5" height="5" hide-xs hide-sm class="img-responsive">
+                <a href="#about" class="aboutus" hide-xs hide-sm><p class="three">About</p></a>
+                <img src="55.png"  width="5" height="5" hide-xs hide-sm class="img-responsive">
+                <a href="#service" class="services" hide-xs hide-sm><p class="three">Services</p></a>
+                <img src="55.png" width="5" height="5" hide-xs hide-sm class="img-responsive">
+                <a href="#product" class="products" hide-xs hide-sm><p class="three">Products</p></a>
+                <img src="55.png" width="5" height="5" hide-xs hide-sm class="img-responsive">
+                <a href="#contactUs"  class="contact" hide-xs hide-sm><p class="three">Contact us</p></a>
+            </div>
+        </md-toolbar>
+    <div id="home" class="par img-responsive">
+<!--           <h1 style="animation-duration:5s;padding-top:125px;" class="animated fadeIn title">"We  Simplifies <span style="color:#FAB702;font-family: 'Allura';color:#FAB702;font-size:18px !important" >Tomorrow's</span> Leaders Ideas"</h1> -->
+          <h6 class="animated fadeIn nbQuote">"We  Simplifies <span style="color:#FAB702;">Tomorrow's</span> Leaders Ideas"</h6>
+          <!-- <h6 class="animated fadeIn" style="animation-duration:6s;padding-top:125px;text-align: center;color:#fff;font-size:19px; ">"We  Simplifies <span style="color:#FAB702;">Tomorrow's</span> Leaders Ideas"</h6>   -->
+    </div>
+    <div id="about" style="background:#18191b;">
+        <h2 class="what" style="color:#fab702;">About Us</h2>
+        <div layout="row" layout-wrap layout-align="center center" class="tech1">
+            <md-card id="demo" class=" key hide" style="animation-duration:3s;">
+                <md-card-content class="md-padding">
+                    <h3 style="color:#FAB702;font-size:16px;">Our History</h3><br>
+                    <p class="test">NadBoy Technologies Private Limited is Established on 17 feb 2015, 
+                        We are advanced startup software development company, offering world class services and solutions to customers globally.
+                    </p>
+                </md-card-content>
+            </md-card>
+            <md-card id="demo1" class=" key hide" style="animation-duration:3s;">
+                <md-card-content class="md-padding">
+                    <h3 style="color:#FAB702;font-size:16px;">Our Passion</h3><br>
+                    <p class="test">We’re committed to develop software’s that gears ideas into reality.</p>
+                    <p class="test" style="color:#f57d00;">"Excellence is not a skill, It is  passion"</p>
+                   
+                </md-card-content>
+            </md-card>
+            <md-card id="demo2"   class=" key hide" style="animation-duration:3s;">
+              <md-card-content class="md-padding">
+                  <h3 style="color:#FAB702;font-size:16px;">Our Mission</h3><br>
+                  <p class="test">Our mission is to encourage our clients in achieving their business goals, by providing innovative, best-in-class IT-solutions and services.</p>
+              </md-card-content>
+            </md-card>
+            <md-card id="demo3"  class=" key hide" style="animation-duration:3s;">
+              <md-card-content class="md-padding">
+                  <h3 style="color:#FAB702;font-size:16px;">Our Best Practice</h3><br>
+                  <p class="test">Fall Down<br>Get Up</p>
+                  <p class="test">Fall Down<br>Get Up</p>
+                  <p class="test">Fall Down<br>Get Up</p>
+              </md-card-content>
+            </md-card>
+        </div>
+    </div>
+  <md-content id="service" class="par1">
+      <div class="nbServices">
+        <h6 class="teng">Our Services</h6>
+      </div>
+      <div class="serv" layout="row" layout-align="center center" layout-wrap>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="1.png" id="demo4" class="hide"  width="80px" height="80px" style="margin-right:25px;animation-duration:7s;animation-delay:0.2s;">
+              <div layout="column" class="leno">
+                  <p class="lenov ">BA Services</p>
+                  <p class="lenovo">Requirement gathering and requirement freezing is the key to success, We have many keys to unlock your perception</p>
+              </div>
+          </div>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="2.png" id="demo5" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:0.5s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">UX Developemnt</p>
+                  <p class="lenovo">User Experience Design, Architecture Design, Logo Design, Website Design, and etc...</p>
+              </div>
+          </div>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="3.png" id="demo6" class="hide"  width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:0.7s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">Web Development</p>
+                  <p class="lenovo">Our major Web Development is MEAN stack development(Angular.js) and other latest technologies. </p>
+              </div>
+          </div>
+         
+          <div layout="row" layout-align="center" class="len">
+              <img  src="4.png" id="demo7" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:0.8s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">Rest Services</p>
+                  <p class="lenovo">Our API's are developed in Node.js, Express.js and other latest technologies.</p>
+              </div>
+          </div>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="5.png" id="demo8" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:1s;">
+              <div layout="column" class="leno">
+                  <p class="lenov"> DB Development</p>
+                  <p class="lenovo">NadBoy team having NoSQL-MongoDB and SQL-MySQL developers</p>
+              </div>
+          </div>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="6.png" id="demo9" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:1.2s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">Maintenance Services</p>
+                  <p class="lenovo">Our team major priority is to resolve client issues with our maintenance subscription services.</p>
+              </div>
+          </div>
+        
+          <div layout="row" layout-align="center" class="len">
+              <img  src="7.png" id="demo10" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:1.5s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">Mobile Apps Development</p>
+                  <p class="lenovo">Our team develops Android, IOS, MAC OSX and Ionic services</p>
+              </div>
+          </div>
+          <div layout="row" layout-align="center" class="len">
+              <img  src="8.png" id="demo11" class="hide" width="80px" height="80px"  style="margin-right:25px;animation-duration:7s;animation-delay:1.7s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">Cloud Sevices</p>
+                  <p class="lenovo">We design and develop the application to access systems, Tablets, Mobiles, in different operating sytems.</p>
+              </div>
+          </div>
+          <div layout="row" class="len" layout-align="center">
+              <img  src="9.png" id="demo12" class="hide" width="80px" height="80px" style="margin-right:25px;animation-duration:7s;animation-delay:1.8s;">
+              <div layout="column" class="leno">
+                  <p class="lenov">IT Consulting Services</p>
+                  <p class="lenovo">We provide UX-Developers, MEAN stack Developers, API Developers, Database Developers and QA.</p>
+              </div>
+          </div>
+      </div>
+  </md-content>
+
+
+  <div  ng-cloak id="product">
+      <md-content  style="background:#18191b !important;">
+          <div style="margin-top: 100px;
+  margin-bottom: 60px;">
+              <h6 class="teng" >Our Products</h6>
+          </div>
+          <md-tabs class="productTabs" md-dynamic-height  md-stretch-tabs="{{tabStretch}}" >
+              <md-tab  label="MEAN stack">
+                  <md-content class="md-padding" style="background:#18191b !important;padding:55px !important;"  >
+                      <div layout="row" layout-wrap layout-align="center" layout-margin style="text-align:center;" >
+                          <md-card id="demo13" class="key md-whiteframe-15dp hide" style="animation-duration:3s;">
+                              <md-card-content class="md-padding" style="padding:67px;">
+                                  <img src="rw.png" width="100">
+                                  <p class="balooFont android">rootwinn</p>
+                              </md-card-content>
+                          </md-card>
+                          <md-card id="demo14"  class="md-whiteframe-15dp  key hide" style="animation-duration:3s;">
+                              <md-card-content class="md-padding" style="margin-top:60px;">
+                                  <img src="oh.png" >
+                                  <p class="mean balooFont">OyeHappy</p>
+                              </md-card-content>
+                          </md-card>
+                      </div>
+                  </md-content>
+              </md-tab>
+              <md-tab  label="Android" md-on-select="animateToTab('android')">
+                  <md-content class="md-padding" style="background:#18191b !important;padding:55px !important;">
+                      <div layout="row" layout-wrap layout-align="center" layout-margin style="text-align:center;">
+                          <md-card ng-class="tabAnimation1" id="demo15" class=" key md-whiteframe-15dp" style="animation-duration:3s;">
+                              <md-card-content class="md-padding" style="padding:67px;">
+                                  <img src="ip.png">
+                                  <p class="android balooFont">Publishat</p>
+                              </md-card-content>
+                          </md-card>
+                          <md-card ng-class="tabAnimation2" id="demo16" class="key md-whiteframe-15dp" style="animation-duration:3s;">
+                              <md-card-content class="md-padding" style="padding:67px;">
+                                  <img src="sw.png" width="100">
+                                  <p class="android balooFont">Swachh Bharat</p>
+                              </md-card-content>
+                          </md-card>
+                      </div>
+                  </md-content>
+              </md-tab>
+              <md-tab label="IOS" md-on-select="animateToTab('ios')">
+                  <md-content class="md-padding" style="background:#18191b !important;padding:55px !important;">
+                      <div layout="row" layout-wrap layout-align="center" layout-margin style="text-align:center;">
+                          <md-card ng-class="tabAnimation3" id="demo17" class=" key md-whiteframe-15dp " style="animation-duration:2s;">
+                              <md-card-content class="md-padding" style="padding:67px;">
+                                  <img src="ip.png">
+                                  <p class="android balooFont">Publishat</p>
+                              </md-card-content>
+                          </md-card>
+                          <md-card ng-class="tabAnimation4" id="demo18" class="key md-whiteframe-15dp " style="animation-duration:2s;">
+                              <md-card-content class="md-padding" style="padding:67px;">
+                                  <img src="sw.png" width="100">
+                                  <p class="android balooFont">Swachh Bharat</p>
+                              </md-card-content>
+                          </md-card>
+                      </div>
+                  </md-content>
+              </md-tab>
+              <md-tab label="MAC" md-on-select="animateToTab('mac')">
+                  <md-content class="md-padding" style="background:#18191b !important;padding:55px !important;">
+                      <div layout="row" layout-wrap layout-align="center">
+                          <md-card ng-class="tabAnimation5" class=" key md-whiteframe-15dp" style="animation-duration:2s;">
+                              <md-card-content class="md-padding" layout="column" layout-wrap layout-align="center center" style="height:100%;">
+                                  <h3 style="font-family: 'Baloo Bhai', cursive;color:#FAB702;margin: 0px;">Coming Soon</h3 >
+                                  <p style="color:#FAB702;font-size: 40px;"><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.2s;">.</span><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.4s;">.</span><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.6s;">.</span></p>
+                              </md-card-content>
+                          </md-card>
+                      </div>
+                  </md-content>
+              </md-tab>
+              <md-tab label="IONIC" md-on-select="animateToTab('ionic')">
+                  <md-content class="md-padding" style="background:#18191b !important;padding:55px !important;">
+                      <div layout="row" layout-wrap layout-align="center">
+                          <md-card ng-class="tabAnimation6" class=" key md-whiteframe-15dp" style="animation-duration:2s;">
+                              <md-card-content class="md-padding" layout="column" layout-wrap layout-align="center center" style="height:100%;">
+                                  <h3 style="font-family: 'Baloo Bhai', cursive;color:#FAB702;margin: 0px;">Coming Soon</h3>
+                                  <p style="color:#FAB702;font-size: 40px;"><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.2s;">.</span><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.4s;">.</span><span class="animated fadeIn infinite" style="animation-duration: 1s;animation-delay: 0.6s;">.</span></p>
+                              </md-card-content>
+                          </md-card>
+                      </div>
+                  </md-content>
+              </md-tab>
+          </md-tabs>
+      </md-content>
+  </div>
+
+
+  <div class="par3">
+      <h6 class="teng" style="color:#FAB702 !important;margin-top:0px !important">Fast Facts</h6>
+      <div layout="row" layout-wrap layout-align="center center">
+          <md-card class="fastFactsCard" style="width:200px;height:200px;background:transparent;">
+              <md-card-content layout="column" layout-align="center center" style="height: 100%;">
+                  <h3 class="number hide ">2015</h3>
+                  <p class="kal">Established Year</p>
+              </md-card-content>
+          </md-card>
+          <md-card class="fastFactsCard" style="width:200PX;height:200px;background:transparent;">
+              <md-card-content layout="column" layout-align="center center" style="height: 100%;">
+                  <h3 class="number hide">6</h3>
+                  <p class="kal">Working Days </p>
+              </md-card-content>
+          </md-card>
+          <md-card class="fastFactsCard" style="width:200PX;height:200px;background:transparent;">
+              <md-card-content layout="column" layout-align="center center" style="height: 100%;">
+                  <h3 class="number hide">10</h3>
+                  <p class="kal">Working Hours</p>
+              </md-card-content>
+          </md-card>
+          <md-card class="fastFactsCard" style="width:200PX;height:200px;background:transparent;">
+              <md-card-content layout="column" layout-align="center center" style="height: 100%;">
+                  <h3 class="number hide">25</h3>
+                  <p class="kal">Employees</p>
+              </md-card-content>
+          </md-card>
+      </div>
+  </div>
+
+  
+  <div class="team1">
+      <p style="font-size:24px;color:#fab702;font-weight:700;text-align:center;padding-top:62px;">Our Team</p>
+      <div class="contain" layout="row" layout-align="center center" layout-wrap>
+          <div class="main"  style="  width:100% !important">
+              <div id="mi-slider" class="mi-slider" style="width:100% !important">
+                <ul>
+                  <li><a href="#"><img src="images/t1.jpg" alt="img01"><h4>k.GopiChand</h4></a></li>
+                  <li><a href="#"><img src="images/pr.png" alt="img02"><h4>Priyatham.M</h4></a></li>
+                  <li><a href="#"><img src="images/t3.png" alt="img03"><h4>Mahesh.B</h4></a></li>
+                  <li><a href="#"><img src="images/t4.png" alt="img04"><h4>Prasanth.B</h4></a></li> 
+                </ul>
+                <ul>
+                  <li><a href="#"><img src="images/t5.png"  height="170" alt="img05"><h4>G.Gopinadh</h4></a></li>
+                  <li><a href="#"><img src="images/t6.png" alt="img06"><h4>Gopikrishna.B</h4></a></li>
+                  <li><a href="#"><img src="images/t7.png" alt="img07"><h4>Saiteja.L</h4></a></li>
+                  <li><a href="#"><img src="images/t8.png" alt="img02"><h4>Naresh.U</h4></a></li>
+                   <li><a href="#"><img src="images/t99.png" alt="img02"><h4>Subhan.V</h4></a></li>
+                </ul>
+                <ul >
+                    <li><a href="#"><img src="images/t10.png" alt="img09"><h4>Brahma.P</h4></a></li>
+                    <li><a href="#"><img src="images/t11.png" alt="img10"><h4>E.Srikanth</h4></a></li>
+                    <li><a href="#"><img src="images/t12.jpg" alt="img11"><h4>Koti.A</h4></a></li>
+                    <li><a href="#"><img src="images/t13.png" alt="img03"><h4>Saibabu.K</h4></a></li>
+                </ul>
+                <ul >
+                    <li><a href="#"><img src="images/vd1.png" alt="img12"><h4>Vinod.M</h4></a></li>
+                    <li><a href="#"><img src="images/t15.png" alt="img13"><h4>Vereendra.c</h4></a></li>
+                    <li><a href="#"><img src="images/t16.png" alt="img"><h4>Sunil.A</h4></a></li>      
+                </ul>
+                <ul >
+                    <li><a href="#"><img src="images/rs.png" alt="img06"><h4>Srikanth.R</h4></a></li>
+                    <li><a href="#"><img src="images/t17.jpg" alt="img05"><h4>Sarathbabu.K</h4></a></li>
+                   
+                </ul>
+                <nav>
+                    <a href="#">UX Team</a>
+                    <a href="#">Front End</a>
+                    <a href="#">Back End</a>
+                    <a href="#">BA/QA</a>
+                    <a href="#">Mobile</a>
+                </nav>
+              </div>
+          </div>
+      </div>
+  </div>
+<md-content>
+  <div class="dir">
+        <br>
+        <h6 class="teng" style="color:#FAB702 !important;margin:0px;background:transparent !important;">Director's Word</h6>
+            <br><br><br>
+      <div layout="row" class="dtte" layout-wrap layout-align="center start" style="margin:0px;padding:0px;" >
+          <md-card  class="dir2">
+             <md-card-content >
+                  <h5 class="dir1">Our Team and Our Clients are two eyes for NadBoy Technologies Private limited.  NadBoy Technologies management believes in Team Work.  NadBoyTech started company with fresher team but NadBoy team resolved many challenging tasks with team effort.  Thanks to our clients for believe in us.</h5>
+                  <h5  style="color:#FAB702 !important;float: left;margin-top: 20px;">Kalyan</h5>
+              </md-card-content>
+          </md-card>
+          <md-card  class="dir2">
+             <md-card-content>
+                  <h5  class="dir1">Our Team and Our Clients are two eyes for NadBoy Technologies Private limited.  NadBoy Technologies management believes in Team Work.  NadBoyTech started company with fresher team but NadBoy team resolved many challenging tasks with team effort.  Thanks to our clients for believe in us.</h5>
+                  <h5  style="color:#FAB702 !important;float: left;margin-top: 20px;">Ramana<br>CEO</h5>
+                
+              </md-card-content>
+          </md-card>
+        </div>
+    </div>
+</md-content>
+
+<md-content id="contactUs"  style="height: auto;background:#18191b !important;">
+       <div style="background:#18191b !important;">
+          <h6 class="teng76">Contact Us</h6>
+      </div>
+          <br>
+  <div  layout="row" layout-wrap layout-align="center" layout-margin class="tech1">
+     <md-card id="demo28" class="md-whiteframe-1dp hide secondfan2" style="animation-duration:3s">
+         <md-card-content  class="team">
+                              <h6 class="ten">Our address</h6><br>
+                              <p class="ten2" >NadBoy Technologies Pvt.Ltd.</p>
+                              <p class="ten2" >Flat No.301, Plot No.118/B.</p>
+                              <p class="ten2" >GSL Residency, Sri Sai Nagar.</p>
+                              <p class="ten2">Beside Sai Baba Temple, Opp.Nizampet X-road.</p>
+                              <p class="ten2">Hyderabad-72.</p>
+                              <br><br>
+                              <p class="ten2">Ph : 040-40154778 | Ph : +919848110220</p>
+                              <p class="ten2">Email :hr@nadboytech.com</p>
+          </md-card-content>
+      </md-card>
+      <md-card id="demo29" class="md-whiteframe-1dp hide secondfan3" style="animation-duration:3s">
+          <md-card-content  class="team">
+                      <form>
+                            <h6 class="ten">Drop us a line</h6>
+                            <input style="margin-top:0px !important" class="tin2" placeholder="Name" type="text"  value="" required>
+                            <input  class="tin2" placeholder="Phone" type="number" value="" required>
+                      <div class="flex">
+                          <textarea placeholder="Message" rows="1" required></textarea>
+                      </div>
+                            <md-button class="but">Send</md-button>
+                      </form>
+          </md-card-content>
+      </md-card>
+  </div> 
+</md-content>
+
+<md-content  style="margin:0px;">
+    <div  layout="row"  layout-align="center" layout-margin class="foot1">
+          <h3 class="foot">&#169 NadBoy Technologies Private Limited.</h3>s
+    </div>
+</md-content>
+</div>
+<script>
+$(document).ready(function(){
+  $(window).scroll(startCounter);
+    function startCounter() {
+    if ($(window).scrollTop() > 2300) {
+      $('.number').removeClass("hide");
+        $(window).off("scroll", startCounter);
+        $('.number').each(function () {
+            var $this = $(this);
+            jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function () {
+                    $this.text(Math.ceil(this.Counter));
+                }
+            });
+        });
+    }
+ }
+});
+$(document).ready(function(){
+    $(".mean").click(function(){
+       console.log("tab");
+    });
+});
+$(document).ready(function(){
+  var screenSize = $(window).innerWidth();
+  if(screenSize <=480){
+     $("#demo").removeClass("hide");
+     $("#demo1").removeClass("hide");
+     $("#demo2").removeClass("hide");
+     $("#demo3").removeClass("hide");
+  }
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop(); 
+    if (scroll >= 500 && screenSize >=480 ){
+        $("#demo").removeClass("hide");
+        $("#demo").addClass("animated fadeInLeft show");
+    }
+     if (scroll >= 500 && screenSize >=480){
+        $("#demo1").removeClass("hide");
+        $("#demo1").addClass("animated zoomIn show");
+    }
+    if (scroll >= 500 && screenSize >=480){
+        $("#demo2").removeClass("hide");
+        $("#demo2").addClass("animated zoomIn show");
+    }
+    if (scroll >= 500 && screenSize >=480){
+        $("#demo3").removeClass("hide");
+        $("#demo3").addClass("animated fadeInRight show");
+    }
+     if (scroll >=1000){
+        $("#demo4").removeClass("hide");
+        $("#demo4").addClass("animated rotateIn show");
+    }
+    if (scroll >=1000){
+        $("#demo5").removeClass("hide");
+        $("#demo5").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo6").removeClass("hide");
+        $("#demo6").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo7").removeClass("hide");
+        $("#demo7").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo8").removeClass("hide");
+        $("#demo8").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo9").removeClass("hide");
+        $("#demo9").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo10").removeClass("hide");
+        $("#demo10").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo11").removeClass("hide");
+        $("#demo11").addClass("animated rotateIn show");
+    }
+       if (scroll >=1000){
+        $("#demo12").removeClass("hide");
+        $("#demo12").addClass("animated rotateIn show");
+    }
+       if (scroll >=2000){
+        $("#demo13").removeClass("hide");
+        $("#demo13").addClass("animated fadeInLeft show");
+    }
+        if (scroll >=2000){
+        $("#demo14").removeClass("hide");
+        $("#demo14").addClass("animated fadeInRight show");
+    }
+    //  if (scroll >=2000){
+    //     $("#demo15").removeClass("hide");
+    //     $("#demo15").addClass("animated fadeInRight show");
+    // }
+    // if (scroll >=2000){
+    //   $("#demo16").removeClass("hide");
+    //   $("#demo16").removeClass("animated fadeInLeft show");
+    // }
+    // if (scroll >=2000){
+    //   $("#demo17").removeClass("hide");
+    //   $("#demo17").removeClass("animated fadeInRight show");
+    // }
+    // if (scroll >=2000){
+    //   $("#demo18").removeClass("hide");
+    //   $("#demo18").removeClass("animated fadeInRight show");
+    // }
+    // if (scroll >=2000){
+    //   $("#demo19").removeClass("hide");
+    //   $("#demo19").removeClass("animated fadeInRight show");
+    // }
+
+    
+      if (scroll >=3500){
+        $("#demo28").removeClass("hide");
+        $("#demo28").addClass("animated fadeInLeft show");
+    }
+      if (scroll >=3500){
+        $("#demo29").removeClass("hide");
+        $("#demo29").addClass("animated fadeInRight show");
+    }
+});
+
+ $(".aboutus").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+
+ $(".services").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+ $(".products").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+ $(".contact").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+});
+ 
+ // jquery for team start
+  $(function() {
+        $( '#mi-slider' ).catslider();
+      });
+;( function( $, window, undefined ) {
+  'use strict';
+  $.CatSlider = function( options, element ) {
+    this.$el = $( element );
+    this._init( options );
+  };
+  $.CatSlider.prototype = {
+    _init : function( options ) {
+      // the categories (ul)
+      this.$categories = this.$el.children( 'ul' );
+      // the navigation
+      this.$navcategories = this.$el.find( 'nav > a' );
+      var animEndEventNames = {
+        'WebkitAnimation' : 'webkitAnimationEnd',
+        'OAnimation' : 'oAnimationEnd',
+        'msAnimation' : 'MSAnimationEnd',
+        'animation' : 'animationend'
+      };
+      // animation end event name
+      this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
+      // animations and transforms support
+      this.support = Modernizr.csstransforms && Modernizr.cssanimations;
+      // if currently animating
+      this.isAnimating = false;
+      // current category
+      this.current = 0;
+      var $currcat = this.$categories.eq( 0 );
+      if( !this.support ) {
+        this.$categories.hide();
+        $currcat.show();
+      }
+      else {
+        $currcat.addClass( 'mi-current' );
+      }
+      // current nav category
+      this.$navcategories.eq( 0 ).addClass( 'mi-selected' );
+      // initialize the events
+      this._initEvents();
+    },
+    _initEvents : function() {
+      var self = this;
+      this.$navcategories.on( 'click.catslider', function() {
+        self.showCategory( $( this ).index() );
+        return false;
+      } );
+      // reset on window resize..
+      $( window ).on( 'resize', function() {
+        self.$categories.removeClass().eq( 0 ).addClass( 'mi-current' );
+        self.$navcategories.eq( self.current ).removeClass( 'mi-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
+        self.current = 0;
+      } );
+    },
+    showCategory : function( catidx ) {
+      if( catidx === this.current || this.isAnimating ) {
+        return false;
+      }
+      this.isAnimating = true;
+      // update selected navigation
+      this.$navcategories.eq( this.current ).removeClass( 'mi-selected' ).end().eq( catidx ).addClass( 'mi-selected' );
+      var dir = catidx > this.current ? 'right' : 'left',
+        toClass = dir === 'right' ? 'mi-moveToLeft' : 'mi-moveToRight',
+        fromClass = dir === 'right' ? 'mi-moveFromRight' : 'mi-moveFromLeft',
+        // current category
+        $currcat = this.$categories.eq( this.current ),
+        // new category
+        $newcat = this.$categories.eq( catidx ),
+        $newcatchild = $newcat.children(),
+        lastEnter = dir === 'right' ? $newcatchild.length - 1 : 0,
+        self = this;
+      if( this.support ) {
+        $currcat.removeClass().addClass( toClass );
+        setTimeout( function() {
+          $newcat.removeClass().addClass( fromClass );
+          $newcatchild.eq( lastEnter ).on( self.animEndEventName, function() {
+            $( this ).off( self.animEndEventName );
+            $newcat.addClass( 'mi-current' );
+            self.current = catidx;
+            var $this = $( this );
+            // solve chrome bug
+            self.forceRedraw( $this.get(0) );
+            self.isAnimating = false;
+          });
+        }, $newcatchild.length * 90 );
+      }
+      else {
+        $currcat.hide();
+        $newcat.show();
+        this.current = catidx;
+        this.isAnimating = false;
+      }
+    },
+    // based on http://stackoverflow.com/a/8840703/989439
+    forceRedraw : function(element) {
+      if (!element) { return; }
+      var n = document.createTextNode(' '),
+        position = element.style.position;
+      element.appendChild(n);
+      element.style.position = 'relative';
+      setTimeout(function(){
+        element.style.position = position;
+        n.parentNode.removeChild(n);
+      }, 25);
+    }
+  }
+  $.fn.catslider = function( options ) {
+    var instance = $.data( this, 'catslider' );
+    if ( typeof options === 'string' ) {
+      var args = Array.prototype.slice.call( arguments, 1 );
+      this.each(function() {
+        instance[ options ].apply( instance, args );
+      });
+    }
+    else {
+      this.each(function() {
+        instance ? instance._init() : instance = $.data( this, 'catslider', new $.CatSlider( options, this ) );
+      });
+    }
+    return instance;
+  };
+} )
+( jQuery, window );  
+                                // jquery for team   end
+</script>
+
+ </body>
+ </html>

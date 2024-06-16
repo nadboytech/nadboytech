@@ -1,0 +1,11 @@
+.ie{
+	display: none;
+	height: 500px;
+	background-color: #000;
+}
+html > body{
+	background-image: url("ie1.png");
+	background-repeat: no-repeat;
+	margin-left:80px;
+
+}
